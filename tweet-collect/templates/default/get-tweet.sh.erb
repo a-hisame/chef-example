@@ -4,7 +4,7 @@ KEYWORD=<%= @keyword %>
 CURRENT=`date "+%Y-%m-%d %H:%M:%S"`
 URL="https://twitter.com/search?q=${KEYWORD}&src=typd"
 
-curl -o /tmp/tweet.txt "$URL"
+curl -s -o /tmp/tweet.txt "$URL"
 cat /tmp/tweet.txt | grep "js-tweet-text tweet-text" | sed -e 's/<p.[^>]\+>\([^<]*\).\+/\1/g' | sed -e 's/^[ \\t]*//g' | grep -E '.+' > msg.txt
 
 QT=\'

@@ -1,0 +1,19 @@
+#! /bin/sh
+
+BIN_DIR=/usr/local/apache-tomcat/bin
+
+case "$1" in
+  start)
+    sudo sh ${BIN_DIR}/startup.sh
+    ;;
+  stop)
+    sudo sh ${BIN_DIR}/shutdown.sh
+    ;;
+  *)
+    N=/etc/init.d/tomcatsrv
+    echo "Usage: $N {start|stop}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
