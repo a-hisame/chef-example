@@ -20,13 +20,13 @@ download_list = [
   # birt runtime
   {
     "file" => "birt-runtime-4_3_1.zip",
-    "url" => "ftp://ftp.u-aizu.ac.jp/pub/eclipse/birt/downloads/drops/R-R1-4_3_1-201309181142/birt-runtime-4_3_1.zip"
+    "url" => "ftp://ftp.u-aizu.ac.jp/pub/eclipse/birt/downloads/drops/R-R1-4_3_1-201309181142/birt-runtime-4_3_1.zip",
     "directory" => "birt-runtime-4_3_1"
   },
   # connector-j
   {
     "file" => "mysql-connector-java-5.1.27.zip",
-    "url" => "http://cdn.mysql.com/Downloads/Connector-J/mysql-connector-java-5.1.27.zip"
+    "url" => "http://cdn.mysql.com/Downloads/Connector-J/mysql-connector-java-5.1.27.zip",
     "directory" => "mysql-connector-java-5.1.27"
   }
 ]
