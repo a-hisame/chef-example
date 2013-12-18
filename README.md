@@ -24,8 +24,11 @@ vagrant ssh
 標準のsolo-config.rbを利用する場合、以下のようにすると楽です。
 
 ```
+# 初回のみ、chefとgitのインストール
 curl -L http://www.opscode.com/chef/install.sh | sudo bash
 sudo yum install git
+
+# このリポジトリのチェックアウトとchef-soloの実行
 cd /home/vagrant/
 git clone https://github.com/a-hisame/chef-example.git cookbooks
 cd cookbooks
