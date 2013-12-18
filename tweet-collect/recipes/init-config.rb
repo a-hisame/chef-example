@@ -19,8 +19,7 @@ package "git" do
   action :install
 end
 
-package "java" do
-  version "1.7.0"
+yum_package "java-1.7.0-openjdk.x86_64" do
   action :install
 end
 
@@ -42,3 +41,13 @@ service "firewalld" do
   action [ :enable, :start ]
   
 end
+
+# create working directory
+directory "#{node["application"]["path"]}" do
+  action :create
+end
+
+directory "#{node["application"]["repository"]["path"]}" do
+  action :create
+end
+
