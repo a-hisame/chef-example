@@ -78,3 +78,17 @@ execute "setup execute-mode" do
   command "chmod 755 #{install_target}/bin/*.sh"
   action :run
 end
+
+# birt.war extraction
+execute "start tomcat" do
+  command <<-EOH
+    sudo #{install_target}/bin/startup.sh
+    sleep 10
+    curl http://localhost:8080/birt/ 2&>1 > /dev/null
+    sudo #{install_target}/bin/shutdown.sh
+  EOH
+  action :run
+  not_if { ::File.exists?("#{install_target}/webapps/birt/report.rptdesign") }
+end
+
+
