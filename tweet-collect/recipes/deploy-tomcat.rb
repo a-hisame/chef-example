@@ -20,7 +20,7 @@ download_list = [
   # birt runtime
   {
     "file" => "birt-runtime-4_3_1.zip",
-    "url" => "ftp://ftp.u-aizu.ac.jp/pub/eclipse/birt/downloads/drops/R-R1-4_3_1-201309181142/birt-runtime-4_3_1.zip",
+    "url" => "http://ftp.yz.yamagata-u.ac.jp/pub/eclipse//birt/downloads/drops/R-R1-4_3_1-201309181142/birt-runtime-4_3_1.zip",
     "directory" => "birt-runtime-4_3_1"
   },
   # connector-j
@@ -43,7 +43,7 @@ download_list.each do |info|
   end
   
   execute "unzip #{file}" do
-    command "unzip #{download_path}/#{file} -d #{download_path}/#{directory}"
+    command "unzip #{download_path}/#{file} -d #{download_path}"
     action :run
     not_if { ::File.exists?("#{download_path}/#{directory}") }
   end
@@ -57,19 +57,19 @@ install_target = node["tomcat"]["path"]
 
 # install tomcat-server
 execute "deploy tomcat" do
-  command "sudo cp -rf #{download_list}/apache-tomcat-7.0.47 #{install_target}"
+  command "sudo cp -rf #{download_path}/apache-tomcat-7.0.47 #{install_target}"
   action :run
   not_if { ::File.exists?("#{install_target}") }
 end
 
 execute "deploy birt runtime" do
-  command "sudo cp #{download_list}/birt-runtime-4_3_1/birt.war #{install_target}/webapps/"
+  command "sudo cp #{download_path}/birt-runtime-4_3_1/birt.war #{install_target}/webapps/"
   action :run
   not_if { ::File.exists?("#{install_target}/webapps/birt.war") }
 end
 
 execute "deploy connect-j" do
-  command "sudo cp #{download_list}/mysql-connector-java-5.1.27/mysql-connector-java-5.1.27-bin.jar #{install_target}/lib/"
+  command "sudo cp #{download_path}/mysql-connector-java-5.1.27/mysql-connector-java-5.1.27-bin.jar #{install_target}/lib/"
   action :run
   not_if { ::File.exists?("#{install_target}/lib/mysql-connector-java-5.1.27-bin.jar") }
 end
