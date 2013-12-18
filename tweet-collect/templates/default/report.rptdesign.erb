@@ -57,8 +57,8 @@
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
             <property name="odaURL">jdbc:mysql://<%= @database["host"] %>:<%= @database["port"] %>/<%= @database["scheme"] %></property>
-            <property name="odaUser">@database["username"]</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">@database["base64password"]</encrypted-property>
+            <property name="odaUser"><%= @database["username"] %></property>
+            <encrypted-property name="odaPassword" encryptionID="base64"><%= @database["base64password"] %></encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
