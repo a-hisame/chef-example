@@ -2,7 +2,7 @@
 
 -- setup user information
 set password for root@"localhost"=PASSWORD('<%= @mysql["root"]["password"] ? @mysql["root"]["password"] : "rootroot" %>');
-grant all privileges on *.* to <%= @mysql["user"]["name"] ? @mysql["user"]["name"] ? "tweetuser" %>@'localhost' identified by '<%= @mysql["user"]["password"] ? @mysql["user"]["password"] ? "tweetuser_password" %>' with grant option;
+grant all privileges on *.* to <%= @mysql["user"]["name"] ? @mysql["user"]["name"] : "tweetuser" %>@'localhost' identified by '<%= @mysql["user"]["password"] ? @mysql["user"]["password"] : "tweetuser_password" %>' with grant option;
 
 -- create and setup database.
 create database tweet_collect character set utf8;

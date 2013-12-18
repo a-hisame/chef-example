@@ -11,7 +11,6 @@ template "create-crontab-config" do
     :schedule => node["tweet-collect"]["keyword"],
     :application_path => node["application"]["path"],
   })
-  notifies :run, 'execute[initconfig-mysql-server]'
 end
 
 execute "set-cronconfig" do
@@ -20,3 +19,7 @@ execute "set-cronconfig" do
   action :run
 end
 
+service "crond" do
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :restart ]
+end

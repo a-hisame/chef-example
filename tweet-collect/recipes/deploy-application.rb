@@ -25,7 +25,9 @@ template "deploy report.rptdesign" do
     :database => {
       "host" => "localhost",
       "port" => "3306",
-      "scheme" => "tweet_collect"
+      "scheme" => "tweet_collect",
+      "username" => node["mysql"]["user"]["name"],
+      "base64password" => node["mysql"]["user"]["base64password"],
     }
   })
 end

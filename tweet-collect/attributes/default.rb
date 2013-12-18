@@ -12,6 +12,7 @@ default["mysql"]["root"]["password"] = "rootroot"
 
 default["mysql"]["user"]["name"] = "tweetuser"
 default["mysql"]["user"]["password"] = "tweetuser_password"
+default["mysql"]["user"]["base64password"] = "dHdlZXR1c2VyX3Bhc3N3b3Jk"
 
 default["tweet-collect"]["keyword"] = "mail"
 

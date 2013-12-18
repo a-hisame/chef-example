@@ -19,7 +19,8 @@ package "git" do
   action :install
 end
 
-package "java-1.7.0-openjdk.x86_64" do
+package "java" do
+  version "1.7.0"
   action :install
 end
 
