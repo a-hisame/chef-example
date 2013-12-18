@@ -8,7 +8,7 @@ template "create-crontab-config" do
   mode 00644
   action :create
   variables({
-    :schedule => node["tweet-collect"]["keyword"],
+    :schedule => "0-59/5 * * * *",
     :application_path => node["application"]["path"],
   })
 end

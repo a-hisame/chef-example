@@ -2,7 +2,7 @@
 # install mysql-server
 ################################################
 
-package "mysql-server" do
+package "community-mysql-server" do
   action :install
 end
 
@@ -28,7 +28,7 @@ template "initialize.sql" do
 end
 
 execute "initconfig-mysql-server" do
-  command "mysql -u #{node["mysql"]["root"]["user"]} -p#{node["mysql"]["root"]["password"]} < "#{node["application"]["repository"]["path"]}/initialize.sql"
+  command "mysql -u #{node["mysql"]["root"]["name"]} -p#{node["mysql"]["root"]["password"]} < #{node["application"]["repository"]["path"]}/initialize.sql"
   # only execute notifies.
   action :nothing
 end
