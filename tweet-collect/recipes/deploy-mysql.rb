@@ -28,7 +28,8 @@ template "initialize.sql" do
 end
 
 execute "initconfig-mysql-server" do
-  command "mysql -u #{node["mysql"]["root"]["name"]} -p#{node["mysql"]["root"]["password"]} < #{node["application"]["repository"]["path"]}/initialize.sql"
+  # first time, root password is nothing("").
+  command "mysql -u #{node["mysql"]["root"]["name"]} < #{node["application"]["repository"]["path"]}/initialize.sql"
   # only execute notifies.
   action :nothing
 end
