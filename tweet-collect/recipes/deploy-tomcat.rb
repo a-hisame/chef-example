@@ -1,6 +1,6 @@
 # download and deploy about tomcat.
 
-download_path="/home/vagrant/download"
+download_path = node["application"]["repository"]["path"]
 
 directory download_path do
   action :create
@@ -53,7 +53,7 @@ end
 # deploy tomcat and others
 ################################################
 
-install_target = "/usr/local/apache-tomcat"
+install_target = node["tomcat"]["path"]
 
 # install tomcat-server
 execute "deploy tomcat" do

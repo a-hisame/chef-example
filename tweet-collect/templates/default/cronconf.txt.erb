@@ -1,0 +1,2 @@
+# update tweet
+<%= @schedule if @schedule else "0-59/5 * * * *" %> /usr/bin/bash <%= @application_path %>/update-tweet.sh > /dev/null 2>&1
