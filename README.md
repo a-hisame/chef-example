@@ -27,7 +27,7 @@ vagrant ssh
 ```
 # 初回のみ、chefとgitのインストール
 curl -L http://www.opscode.com/chef/install.sh | sudo bash
-sudo yum install git
+sudo yum -y install git
 
 # このリポジトリのチェックアウトとchef-soloの実行
 cd /home/vagrant/
