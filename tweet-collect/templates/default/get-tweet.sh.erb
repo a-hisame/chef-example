@@ -8,7 +8,7 @@ curl -s -o /tmp/tweet.txt "$URL"
 cat /tmp/tweet.txt | grep "js-tweet-text tweet-text" | sed -e 's/<p.[^>]\+>\([^<]*\).\+/\1/g' | sed -e 's/^[ \\t]*//g' | grep -E '.+' > /tmp/msg.txt
 
 QT=\'
-REPLACED="INSERT INTO tweet (MESSAGE, CREATED) VALUES ($QT\1$QT,$QT$D$QT);"
+REPLACED="INSERT INTO tweet (MESSAGE, CREATED) VALUES ($QT\1$QT,$QT$CURRENT$QT);"
 cat /tmp/msg.txt | sed -e "s/\(.*\)/$REPLACED/g" > /tmp/insert.sql
 
 USER=<%= @mysql_user %>
