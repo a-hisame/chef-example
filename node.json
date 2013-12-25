@@ -1,8 +1,6 @@
 {
-  "default_attributes" : {
-    "tweet-collect": {
-      "keyword":"mail"
-    }
+  "tweet-collect": {
+    "keyword":"mail"
   },
   "run_list": [
     "recipe[tweet-collect::default]"
